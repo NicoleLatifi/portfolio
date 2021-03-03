@@ -1,11 +1,10 @@
-import { products } from '../products-data'
+import { products } from '../../products-data'
+import Product from '../Product/Product'
 
 function ProductsList() {
   const productsToDisplay = Object.values(products).map(product => {
     return (
-      <div>
-        <p>{product.name}</p>
-      </div>
+      <Product productData = {product} />
     )
   })
 
@@ -16,4 +15,4 @@ function ProductsList() {
   );
 }
 
-export default ProductsList;
+export default ProductsList

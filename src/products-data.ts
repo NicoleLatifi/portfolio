@@ -6,7 +6,7 @@ interface ProductsList {
   5: ProductItem
 }
 
-interface ProductItem {
+export interface ProductItem {
   name: string
 }
 
