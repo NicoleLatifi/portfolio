@@ -1,14 +1,20 @@
 import { ProductItem } from '../../products-data'
+import Button from '../Button/Button'
 
 interface Props {
-  productData: ProductItem
+  productData: ProductItem,
+  addToCart: () => void
 }
 
 function Product(props: Props) {
   return (
     <div>
       {props.productData.name}
-      <a>Add To Cart</a>
+      <Button 
+        variant="" 
+        name="Add To Cart" 
+        onClick={props.addToCart}
+      />
     </div>
   )
 }
