@@ -1,10 +1,17 @@
 import { products } from '../../products-data'
 import Product from '../Product/Product'
 
-function ProductsList() {
+interface Props {
+  addToCart: () => void
+}
+
+function ProductsList(props: Props) {
   const productsToDisplay = Object.values(products).map(product => {
     return (
-      <Product productData = {product} />
+      <Product 
+        productData={product} 
+        addToCart={props.addToCart}
+      />
     )
   })
 
