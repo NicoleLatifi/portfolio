@@ -1,4 +1,4 @@
-interface ProductsList {
+export interface ProductsLibrary {
   [key: string] : ProductItem
 }
 
@@ -7,11 +7,7 @@ export interface ProductItem {
   name: string
 }
 
-interface Id {
-  id: string
-}
-
-export const products: ProductsList = {
+export const products: ProductsLibrary = {
   "1": {
     id: "1",
     name: "Resume"
