@@ -5,16 +5,19 @@ import { products } from './products-data'
 import {ProductsLibrary} from './products-data'
 import { connect } from 'react-redux'
 import { setProductsData } from './store/products/actions'
+import { setCart } from './store/cart/actions'
 import { bindActionCreators } from 'redux'
 
 interface DispatchProps {
-  setProductsData: (products: ProductsLibrary) => void
+  setProductsData: (products: ProductsLibrary) => void,
+  setCart: () => void
 }
 
 function App(props: DispatchProps): JSX.Element {
   useEffect(() => {
     props.setProductsData(products)
-  }, [])
+    props.setCart()
+  }, [props])
 
   const addToCart = (productId: string) => {
     console.log(`${products[productId].name} added to cart!`)
@@ -30,7 +33,8 @@ function App(props: DispatchProps): JSX.Element {
 
 export const mapDispatchToProps = (dispatch: any) => (
   bindActionCreators({
-    setProductsData
+    setProductsData,
+    setCart
   }, dispatch)
 )
 
