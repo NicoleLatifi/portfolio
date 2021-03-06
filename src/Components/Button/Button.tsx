@@ -7,12 +7,12 @@ interface Props {
 
 function Button(props: Props) {
   return (
-    <a 
-      className={props.variant} 
+    <button 
+      className={props.variant}
       onClick={() => props.onClick(props.id)}
     >
       {props.name}
-    </a>
+    </button>
   )
 }
 

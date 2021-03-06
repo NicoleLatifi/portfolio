@@ -1,4 +1,4 @@
-import { ProductsLibrary, SET_PRODUCTS_DATA, ProductActionTypes } from './types'
+import { ProductActionTypes, ProductsLibrary, SET_PRODUCTS_DATA } from './types'
 
 const initialState: any /* ProductsLibrary doesn't work with empty object */ = {
   products: {}
