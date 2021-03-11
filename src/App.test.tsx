@@ -12,7 +12,7 @@ const store = mockStore({
   }
 })
 
-test('Renders header', () => {
+test('renders header', () => {
   render(
     <Provider store={ store }>
       <App />
@@ -22,7 +22,7 @@ test('Renders header', () => {
   expect(header).toBeInTheDocument()
 })
 
-test('Renders product name', () => {
+test('renders product name', () => {
   render(
     <Provider store={ store }>
       <App />
@@ -30,4 +30,14 @@ test('Renders product name', () => {
   )
   const name = screen.getByText('Resume')
   expect(name).toBeInTheDocument()
+})
+
+test('renders Add To Cart button', () => {
+  render(
+    <Provider store={ store }>
+      <App />
+    </Provider>
+  )
+  const button = screen.getAllByText('Add To Cart')[0]
+  expect(button).toBeInTheDocument()
 })
