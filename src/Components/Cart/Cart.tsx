@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { products, ProductsLibrary } from '../../products-data'
+import { removeIdFromCart } from '../../store/cart/actions'
 
 interface StateProps {
   products: ProductsLibrary
@@ -8,7 +9,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  
+  removeIdFromCart: (id: string) => void
 }
 
 type Props = StateProps & DispatchProps
@@ -20,7 +21,7 @@ const mapState = (state: any) => ({
 
 const mapDispatch = (dispatch: any) => (
   bindActionCreators({
-
+    removeIdFromCart
   }, dispatch)
 )
 
@@ -32,7 +33,7 @@ function Cart(props: Props) {
         <div style={{border: "2px solid purple", margin: "5px"}}>
           <p>{products[id].name}</p>
           <p>quantity: 1</p>
-          <button>Remove</button>
+          <button onClick={() => props.removeIdFromCart(id)}>Remove</button>
           <br></br>
         </div>
       )
