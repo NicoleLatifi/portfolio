@@ -6,12 +6,21 @@ import { connect } from 'react-redux'
 import { setProductsData } from './store/products/actions'
 import { setCart, addIdToCart } from './store/cart/actions'
 import { bindActionCreators } from 'redux'
+import Cart from './components/Cart/Cart'
 
 interface DispatchProps {
   setProductsData: (products: ProductsLibrary) => void,
   setCart: () => void,
   addIdToCart: (id: string) => void
 }
+
+const mapDispatch = (dispatch: any) => (
+  bindActionCreators({
+    setProductsData,
+    setCart,
+    addIdToCart
+  }, dispatch)
+)
 
 function App(props: DispatchProps): JSX.Element {
   useEffect(() => {
@@ -26,17 +35,10 @@ function App(props: DispatchProps): JSX.Element {
   return (
     <div>
       <h1>Nicole Latifi</h1>
+      <Cart />
       <ProductsList addToCart={addToCart} />
     </div>
   )
 }
 
-export const mapDispatchToProps = (dispatch: any) => (
-  bindActionCreators({
-    setProductsData,
-    setCart,
-    addIdToCart
-  }, dispatch)
-)
-
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatch)(App);

@@ -2,7 +2,7 @@ export type Cart = string[]
 
 export const SET_CART = 'SET_CART'
 export const ADD_ID_TO_CART = 'ADD_ID_TO_CART'
-
+export const REMOVE_ID_FROM_CART= 'REMOVE_ID_FROM_CART'
 interface SetCartAction {
   type: typeof SET_CART
 }
@@ -12,4 +12,9 @@ interface AddToCartIdAction {
   payload: string
 }
 
-export type CartActionTypes = SetCartAction | AddToCartIdAction
+interface RemoveFromCartIdAction {
+  type: typeof REMOVE_ID_FROM_CART
+  payload: string
+}
+
+export type CartActionTypes = SetCartAction | AddToCartIdAction | RemoveFromCartIdAction
