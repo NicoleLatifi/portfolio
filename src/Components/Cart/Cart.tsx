@@ -5,7 +5,7 @@ import { removeIdFromCart } from '../../store/cart/actions'
 
 interface StateProps {
   products: ProductsLibrary
-  cart: []
+  cart: CartType
 }
 
 interface DispatchProps {
@@ -13,6 +13,14 @@ interface DispatchProps {
 }
 
 type Props = StateProps & DispatchProps
+
+export type CartType = {  //should this be an interface?
+  [key: string] : CartItem
+}
+
+type CartItem = {  //should this be an interface?
+  quantity: number
+}
 
 const mapState = (state: any) => ({
   products: state.products,
@@ -27,12 +35,12 @@ const mapDispatch = (dispatch: any) => (
 
 function Cart(props: Props) {
   let productsInCart
-  if(props.cart.length > 0) {
-    productsInCart = Object.values(props.cart).map((id) => {
+  if(Object.keys(props.cart).length > 0) {
+    productsInCart = Object.keys(props.cart).map((id) => {
       return (
         <div style={{border: "2px solid purple", margin: "5px"}}>
           <p>{products[id].name}</p>
-          <p>quantity: 1</p>
+          <p>quantity: {props.cart[id].quantity}</p>
           <button onClick={() => props.removeIdFromCart(id)}>Remove</button>
           <br></br>
         </div>
