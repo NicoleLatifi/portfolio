@@ -1,4 +1,10 @@
-export type Cart = string[]
+export type Cart = {  //should this be an interface?
+  [key: string] : CartItem
+}
+
+type CartItem = {  //should this be an interface?
+  quantity: number
+}
 
 export const SET_CART = 'SET_CART'
 export const ADD_ID_TO_CART = 'ADD_ID_TO_CART'
@@ -9,7 +15,7 @@ interface SetCartAction {
 
 interface AddToCartIdAction {
   type: typeof ADD_ID_TO_CART
-  payload: string
+  payload: {id: string, quantity: number}
 }
 
 interface RemoveFromCartIdAction {

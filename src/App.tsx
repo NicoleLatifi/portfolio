@@ -11,7 +11,7 @@ import Cart from './components/Cart/Cart'
 interface DispatchProps {
   setProductsData: (products: ProductsLibrary) => void,
   setCart: () => void,
-  addIdToCart: (id: string) => void
+  addIdToCart: (id: string, quantity: number) => void
 }
 
 const mapDispatch = (dispatch: any) => (
@@ -29,7 +29,7 @@ function App(props: DispatchProps): JSX.Element {
   }, [props])
 
   const addToCart = (productId: string) => {
-    props.addIdToCart(productId)
+    props.addIdToCart(productId, 1)
   }
 
   return (

@@ -6,10 +6,10 @@ export function setCart(): CartActionTypes {
   }
 }
 
-export function addIdToCart(id: string): CartActionTypes {
+export function addIdToCart(id: string, quantity: number): CartActionTypes {
   return {
     type: ADD_ID_TO_CART,
-    payload: id
+    payload: {id: id, quantity: quantity}
   }
 }
 
