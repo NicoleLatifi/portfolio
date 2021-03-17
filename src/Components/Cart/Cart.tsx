@@ -1,10 +1,11 @@
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { products, ProductsLibrary } from '../../products-data'
+import { CartType } from '../../store/cart/types'
+import { ProductsLibraryType } from '../../store/products/types'
 import { removeIdFromCart } from '../../store/cart/actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 interface StateProps {
-  products: ProductsLibrary
+  products: ProductsLibraryType
   cart: CartType
 }
 
@@ -13,14 +14,6 @@ interface DispatchProps {
 }
 
 type Props = StateProps & DispatchProps
-
-export type CartType = {  //should this be an interface?
-  [key: string] : CartItem
-}
-
-type CartItem = {  //should this be an interface?
-  quantity: number
-}
 
 const mapState = (state: any) => ({
   products: state.products,
@@ -33,13 +26,13 @@ const mapDispatch = (dispatch: any) => (
   }, dispatch)
 )
 
-function Cart(props: Props) {
+function Cart(props: Props): JSX.Element {
   let productsInCart
   if(Object.keys(props.cart).length > 0) {
     productsInCart = Object.keys(props.cart).map((id) => {
       return (
         <div style={{border: "2px solid purple", margin: "5px"}}>
-          <p>{products[id].name}</p>
+          <p>{props.products[id].name}</p>
           <p>quantity: {props.cart[id].quantity}</p>
           <button onClick={() => props.removeIdFromCart(id)}>Remove</button>
           <br></br>
@@ -58,7 +51,7 @@ function Cart(props: Props) {
   )
 }
 
-export default connect<StateProps, DispatchProps /*, OwnProps*/ >(
+export default connect<StateProps, DispatchProps>(
   mapState,
   mapDispatch
 )(Cart)
