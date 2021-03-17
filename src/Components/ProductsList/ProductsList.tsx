@@ -13,13 +13,13 @@ const mapState = (state: any) => ({
   products: state.products
 })
 
-function ProductsList(props: Props) {
+function ProductsList(props: Props): JSX.Element {
   const productsToDisplay = Object.values(props.products).map((product, i) => {
     return (
       <Product 
         key={i}
         id={product.id}
-        productData={product} 
+        productData={product}
       />
     )
   })
