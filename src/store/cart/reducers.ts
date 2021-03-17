@@ -1,4 +1,12 @@
-import { CartActionTypes, CartType, SET_CART, ADD_ID_TO_CART, REMOVE_ID_FROM_CART } from './types'
+import { 
+  CartActionTypes, 
+  CartType, 
+  SET_CART, 
+  ADD_ID_TO_CART, 
+  REMOVE_ID_FROM_CART, 
+  DECREASE_QUANTITY, 
+  INCREASE_QUANTITY
+} from './types'
 
 const initialState: any = {
   cart: {}
@@ -19,6 +27,17 @@ export function cartReducer(
     case REMOVE_ID_FROM_CART:
       newCart = {...state}
       delete newCart[action.payload]
+      return newCart
+    case DECREASE_QUANTITY:
+      newCart = {...state}
+      newCart[action.payload].quantity--
+      if(newCart[action.payload].quantity === 0) {
+        delete newCart[action.payload]
+      }
+      return newCart
+    case INCREASE_QUANTITY:
+      newCart = {...state}
+      newCart[action.payload].quantity++
       return newCart
     default: return state
   }
