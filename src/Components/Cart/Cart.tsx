@@ -4,6 +4,8 @@ import { removeIdFromCart } from '../../store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import CartItem from '../CartItem/CartItem'
+
 interface StateProps {
   products: ProductsLibraryType
   cart: CartType
@@ -29,14 +31,12 @@ const mapDispatch = (dispatch: any) => (
 function Cart(props: Props): JSX.Element {
   let productsInCart
   if(Object.keys(props.cart).length > 0) {
-    productsInCart = Object.keys(props.cart).map((id) => {
+    productsInCart = Object.keys(props.cart).map((id, i) => {
       return (
-        <div style={{border: "2px solid purple", margin: "5px"}}>
-          <p>{props.products[id].name}</p>
-          <p>quantity: {props.cart[id].quantity}</p>
-          <button onClick={() => props.removeIdFromCart(id)}>Remove</button>
-          <br></br>
-        </div>
+        <CartItem 
+          key={i}
+          id={id}
+        />
       )
     })
   }
