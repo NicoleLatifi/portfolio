@@ -1,4 +1,11 @@
-import { CartActionTypes, SET_CART, ADD_ID_TO_CART, REMOVE_ID_FROM_CART } from './types'
+import { 
+  CartActionTypes, 
+  SET_CART, 
+  ADD_ID_TO_CART, 
+  REMOVE_ID_FROM_CART, 
+  DECREASE_QUANTITY,
+  INCREASE_QUANTITY
+} from './types'
 
 export function setCart(): CartActionTypes {
   return {
@@ -16,6 +23,20 @@ export function addToCart(id: string, quantity: number): CartActionTypes {
 export function removeIdFromCart(id: string): CartActionTypes {
   return {
     type: REMOVE_ID_FROM_CART,
+    payload: id
+  }
+}
+
+export function decreaseQuantity(id: string): CartActionTypes {
+  return {
+    type: DECREASE_QUANTITY,
+    payload: id
+  }
+}
+
+export function increaseQuantity(id: string): CartActionTypes {
+  return {
+    type: INCREASE_QUANTITY,
     payload: id
   }
 }

@@ -1,13 +1,28 @@
-import { ProductItemType } from '../../store/products/types'
+import { useEffect, useState } from 'react'
+
+import { CartType } from '../../store/cart/types'
+import { ProductItemType, ProductsLibraryType } from '../../store/products/types'
 import { addToCart } from '../../store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Button from '../Button/Button'
 
+interface StateProps {
+  products: ProductsLibraryType
+  cart: CartType
+}
+
 interface DispatchProps {
   addToCart: (id: string, quantity: number) => void
 }
+
+type Props = StateProps & DispatchProps & OwnProps
+
+const mapState = (state: any) => ({
+  products: state.products,
+  cart: state.cart
+})
 
 const mapDispatch = (dispatch: any) => (
   bindActionCreators({
@@ -21,20 +36,53 @@ interface OwnProps {
   productData: ProductItemType,
 }
 
-type Props = DispatchProps & OwnProps
+function Product(props: Props): JSX.Element {
+  const [ isAddedToCart, setIsAddedToCart ] = useState<boolean>(false)
 
-function Product(props: Props) {
+  useEffect(() => {
+    let isAdded = Object.keys(props.cart).includes(props.id)
+    setIsAddedToCart(isAdded)
+  }, [props.cart, props.id])
+
   return (
-    <div>
+    <div style={{border: "2px solid green", margin: "5px"}}>
       {props.productData.name}
-      <Button 
-        id={props.id}
-        variant="" 
-        name="Add To Cart" 
-        onClick={() => props.addToCart(props.id, 1)}
-      />
+      {!isAddedToCart &&
+        <Button 
+          id={props.id}
+          variant="add-to-cart" 
+          name="Add To Cart" 
+          onClick={() => props.addToCart(props.id, 1)}
+        />
+      }
+      {isAddedToCart &&
+        <p>Added!</p>
+      }
+
+      {/* If you want decrease and increase buttons }
+      {/* {isAddedToCart &&
+        <div>
+          <Button 
+          id={props.id}
+          variant="decrease-quantity" 
+          name="-" 
+          onClick={() => props.addToCart(props.id, 1)}
+          // onClick={() => props.decreaseQuantity(props.id)}
+          />
+          <Button 
+          id={props.id}
+          variant="increase-quantity" 
+          name="+" 
+          onClick={() => props.addToCart(props.id, 1)}
+          // onClick={() => props.increaseQuantity(props.id)}
+          />
+        </div>
+      } */}
     </div>
   )
 }
 
-export default connect(null, mapDispatch)(Product)
+export default connect<StateProps, DispatchProps>(
+  mapState,
+  mapDispatch
+)(Product)
