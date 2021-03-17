@@ -6,7 +6,7 @@ export function setCart(): CartActionTypes {
   }
 }
 
-export function addIdToCart(id: string, quantity: number): CartActionTypes {
+export function addToCart(id: string, quantity: number): CartActionTypes {
   return {
     type: ADD_ID_TO_CART,
     payload: {id: id, quantity: quantity}
