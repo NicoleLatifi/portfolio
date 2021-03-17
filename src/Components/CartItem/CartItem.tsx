@@ -1,5 +1,5 @@
 import { CartType } from '../../store/cart/types'
-import { ProductItemType, ProductsLibraryType } from '../../store/products/types'
+import { ProductsLibraryType } from '../../store/products/types'
 import { removeIdFromCart, decreaseQuantity, increaseQuantity } from '../../store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
