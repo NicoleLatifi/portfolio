@@ -1,6 +1,6 @@
 import { CartType } from '../../store/cart/types'
 import { ProductItemType, ProductsLibraryType } from '../../store/products/types'
-import { removeIdFromCart } from '../../store/cart/actions'
+import { removeIdFromCart, decreaseQuantity, increaseQuantity } from '../../store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -13,6 +13,8 @@ interface StateProps {
 
 interface DispatchProps {
   removeIdFromCart: (id: string) => void
+  decreaseQuantity: (id: string) => void
+  increaseQuantity: (id: string) => void
 }
 
 type Props = StateProps & DispatchProps & OwnProps
@@ -24,7 +26,9 @@ const mapState = (state: any) => ({
 
 const mapDispatch = (dispatch: any) => (
   bindActionCreators({
-    removeIdFromCart
+    removeIdFromCart,
+    decreaseQuantity,
+    increaseQuantity
   }, dispatch)
 )
 
