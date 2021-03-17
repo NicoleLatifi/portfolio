@@ -6,10 +6,13 @@ import configureStore from 'redux-mock-store'
 
 const mockStore = configureStore([])
 const store = mockStore({
-  "1": {
-    id: "1",
-    name: "Resume"
-  }
+  products: {
+    "1": {
+      id: "1",
+      name: "Resume"
+    }
+  },
+  cart: {}
 })
 
 test('renders header', () => {
