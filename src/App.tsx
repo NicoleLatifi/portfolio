@@ -1,15 +1,18 @@
 import './App.css'
+import { products } from './products-data'
 import { useEffect } from 'react'
-import ProductsList from './components/ProductsList/ProductsList'
-import { products, ProductsLibrary } from './products-data'
-import { connect } from 'react-redux'
+
+import { ProductsLibraryType } from './store/products/types'
 import { setProductsData } from './store/products/actions'
 import { setCart, addIdToCart } from './store/cart/actions'
 import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
 import Cart from './components/Cart/Cart'
+import ProductsList from './components/ProductsList/ProductsList'
 
 interface DispatchProps {
-  setProductsData: (products: ProductsLibrary) => void,
+  setProductsData: (products: ProductsLibraryType) => void,
   setCart: () => void,
   addIdToCart: (id: string, quantity: number) => void
 }
@@ -28,17 +31,15 @@ function App(props: DispatchProps): JSX.Element {
     props.setCart()
   }, [props])
 
-  const addToCart = (productId: string) => {
-    props.addIdToCart(productId, 1)
-  }
-
   return (
     <div>
       <h1>Nicole Latifi</h1>
       <Cart />
-      <ProductsList addToCart={addToCart} />
+      <ProductsList />
     </div>
   )
 }
 
-export default connect(null, mapDispatch)(App);
+export default connect(
+  null, mapDispatch
+)(App)
