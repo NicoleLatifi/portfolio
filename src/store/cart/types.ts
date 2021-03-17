@@ -1,8 +1,8 @@
-export type Cart = {  //should this be an interface?
-  [key: string] : CartItem
+export type CartType = {
+  [key: string] : CartItemType
 }
 
-type CartItem = {  //should this be an interface?
+type CartItemType = {
   quantity: number
 }
 
