@@ -10,7 +10,7 @@ export type ProductItemType = {
 export const SET_PRODUCTS_DATA = 'SET_PRODUCTS_DATA'
 
 interface SetProductsDataAction {
-  type: typeof SET_PRODUCTS_DATA
+  readonly type: typeof SET_PRODUCTS_DATA
   payload: ProductsLibraryType
 }
 
