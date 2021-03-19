@@ -8,6 +8,8 @@ import { setCart, addToCart } from './store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import TopBar from './components/TopBar/TopBar'
+import Nav from './components/Nav/Nav'
 import Cart from './components/Cart/Cart'
 import ProductsList from './components/ProductsList/ProductsList'
 
@@ -33,9 +35,10 @@ function App(props: DispatchProps): JSX.Element {
 
   return (
     <div>
-      <h1>Nicole Latifi</h1>
-      <Cart />
+      <TopBar />
+      <Nav />
       <ProductsList />
+      <Cart />
     </div>
   )
 }

@@ -1,0 +1,26 @@
+.nav {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: space-between;
+  padding: 0 36px 0 36px;
+}
+
+.nav-list {
+  align-items: center;
+  display: flex;
+}
+
+.nav-item {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  list-style-type: none;
+  margin: 0 20px 0 20px;
+}
+
+.shopping-bag {
+  margin: 0 20px 0 20px;
+  padding-bottom: 8px;
+  width: 24px;
+}
