@@ -1,3 +1,4 @@
+import './ProductsList.css'
 import { ProductsLibraryType } from '../../store/products/types'
 import { connect } from 'react-redux'
 
@@ -26,6 +27,7 @@ function ProductsList(props: Props): JSX.Element {
 
   return (
     <div>
+      <h2 className="page-title">Products</h2>
       {productsToDisplay}
     </div>
   )
