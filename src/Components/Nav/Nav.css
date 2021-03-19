@@ -3,6 +3,7 @@
   display: flex;
   height: 200px;
   justify-content: space-between;
+  padding: 0 36px 0 36px;
 }
 
 .nav-list {
