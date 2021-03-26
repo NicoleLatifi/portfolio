@@ -1,0 +1,16 @@
+.product {
+  border: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+}
+
+.image-container {
+  align-self: center;
+  width: 80%;
+}
+
+.product-image {
+  filter: invert(.8);
+  width: 100%;
+}

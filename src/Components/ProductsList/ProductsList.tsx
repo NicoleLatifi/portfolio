@@ -28,7 +28,9 @@ function ProductsList(props: Props): JSX.Element {
   return (
     <div>
       <h2 className="page-title">Products</h2>
-      {productsToDisplay}
+      <div className="products-container">
+        {productsToDisplay}
+      </div>
     </div>
   )
 }
