@@ -1,3 +1,5 @@
+import './Product.css'
+import PlaceholderImg from '../../assets/placeholder.svg'
 import { useEffect, useState } from 'react'
 
 import { CartType } from '../../store/cart/types'
@@ -45,19 +47,28 @@ function Product(props: Props): JSX.Element {
   }, [props.cart, props.id])
 
   return (
-    <div style={{border: "2px solid green", margin: "5px"}}>
-      {props.productData.name}
-      {!isAddedToCart &&
-        <Button 
-          id={props.id}
-          variant="add-to-cart" 
-          name="Add To Cart" 
-          onClick={() => props.addToCart(props.id, 1)}
+    <div className="product">
+      <div className="image-container">
+        <img
+          className="product-image"
+          src={PlaceholderImg}
+          alt="No product image available."
         />
-      }
-      {isAddedToCart &&
-        <p>Added!</p>
-      }
+      </div>
+      <div className="product-details">
+        {props.productData.name}
+        {!isAddedToCart &&
+          <Button 
+            id={props.id}
+            variant="add-to-cart" 
+            name="Add To Cart" 
+            onClick={() => props.addToCart(props.id, 1)}
+          />
+        }
+        {isAddedToCart &&
+          <p>Added!</p>
+        }
+      </div>
 
       {/* If you want decrease and increase buttons }
       {/* {isAddedToCart &&
