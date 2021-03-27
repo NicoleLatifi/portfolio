@@ -4,28 +4,40 @@ export interface ProductsLibrary {
 
 export interface ProductItem {
   id: string,
-  name: string
+  name: string,
+  rating: number,
+  numberOfReviews: number
 }
 
 export const products: ProductsLibrary = {
   "1": {
     id: "1",
-    name: "Resume"
+    name: "Resume",
+    rating: 5,
+    numberOfReviews: 1
   },
   "2": {
     id: "2",
-    name: "Placeholder One"
+    name: "Placeholder One",
+    rating: 3,
+    numberOfReviews: 0
   },
   "3": {
     id: "3",
-    name: "Placeholder Two"
+    name: "Placeholder Two",
+    rating: 4,
+    numberOfReviews: 0
   },
   "4": {
     id: "4",
-    name: "Placeholder Three"
+    name: "Placeholder Three",
+    rating: 0,
+    numberOfReviews: 0
   },
   "5": {
     id: "5",
-    name: "Placeholder Four"
+    name: "Placeholder Four",
+    rating: 0,
+    numberOfReviews: 0
   }
 }
