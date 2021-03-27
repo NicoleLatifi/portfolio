@@ -1,5 +1,6 @@
 import './Product.css'
 import PlaceholderImg from '../../assets/placeholder.svg'
+import Star from '../../assets/star.svg'
 import { useEffect, useState } from 'react'
 
 import { CartType } from '../../store/cart/types'
@@ -9,6 +10,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Button from '../Button/Button'
+import { products } from '../../products-data'
+import { setProductsData } from '../../store/products/actions'
 
 interface StateProps {
   products: ProductsLibraryType
@@ -46,6 +49,27 @@ function Product(props: Props): JSX.Element {
     setIsAddedToCart(isAdded)
   }, [props.cart, props.id])
 
+  let filledStars = []
+  for(let i = 0; i < props.productData.rating; i++) {
+      filledStars.push(
+      <img 
+        className="filled star"
+        src={Star}
+        alt="Star"
+      />
+    )
+  }
+  let unfilledStars = []
+  for(let i = 0; i < (5 - props.productData.rating); i++) {
+      unfilledStars.push(
+      <img 
+        className="unfilled star"
+        src={Star}
+        alt="Star"
+      />
+    )
+  }
+
   return (
     <div className="product">
       <div className="image-container">
@@ -55,20 +79,23 @@ function Product(props: Props): JSX.Element {
           alt="No product image available."
         />
       </div>
-      <div className="product-details">
-        {props.productData.name}
-        {!isAddedToCart &&
-          <Button 
-            id={props.id}
-            variant="add-to-cart" 
-            name="Add To Cart" 
-            onClick={() => props.addToCart(props.id, 1)}
-          />
-        }
-        {isAddedToCart &&
-          <p>Added!</p>
-        }
+      <p className="product-name">{props.productData.name}</p>
+      <div className="star-container">
+        {filledStars}
+        {unfilledStars}
+        <p className="number-of-reviews">({props.productData.numberOfReviews})</p>
       </div>
+      {!isAddedToCart &&
+        <Button 
+          id={props.id}
+          variant="add-to-cart" 
+          name="Add To Cart" 
+          onClick={() => props.addToCart(props.id, 1)}
+        />
+      }
+      {isAddedToCart &&
+        <p>Added!</p>
+      }
 
       {/* If you want decrease and increase buttons }
       {/* {isAddedToCart &&
