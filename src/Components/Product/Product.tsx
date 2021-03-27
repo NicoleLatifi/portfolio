@@ -80,22 +80,24 @@ function Product(props: Props): JSX.Element {
         />
       </div>
       <p className="product-name">{props.productData.name}</p>
-      <div className="star-container">
-        {filledStars}
-        {unfilledStars}
-        <p className="number-of-reviews">({props.productData.numberOfReviews})</p>
+      <div className="stars-and-button">
+        <div className="star-container">
+          {filledStars}
+          {unfilledStars}
+          <p className="number-of-reviews">({props.productData.numberOfReviews})</p>
+        </div>
+        {!isAddedToCart &&
+          <Button 
+            id={props.id}
+            variant="add-to-cart" 
+            name="Add To Cart" 
+            onClick={() => props.addToCart(props.id, 1)}
+          />
+        }
+        {isAddedToCart &&
+          <p>Added!</p>
+        }
       </div>
-      {!isAddedToCart &&
-        <Button 
-          id={props.id}
-          variant="add-to-cart" 
-          name="Add To Cart" 
-          onClick={() => props.addToCart(props.id, 1)}
-        />
-      }
-      {isAddedToCart &&
-        <p>Added!</p>
-      }
 
       {/* If you want decrease and increase buttons }
       {/* {isAddedToCart &&
