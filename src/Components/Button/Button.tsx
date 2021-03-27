@@ -1,3 +1,5 @@
+import './Button.css'
+
 interface Props {
   id: string,
   variant: string,
