@@ -1,3 +1,5 @@
+import './Cart.css'
+
 import { CartType } from '../../store/cart/types'
 import { ProductsLibraryType } from '../../store/products/types'
 import { removeIdFromCart } from '../../store/cart/actions'
@@ -15,7 +17,7 @@ interface DispatchProps {
   removeIdFromCart: (id: string) => void
 }
 
-type Props = StateProps & DispatchProps
+type Props = StateProps & DispatchProps & OwnProps
 
 const mapState = (state: any) => ({
   products: state.products,
@@ -27,6 +29,10 @@ const mapDispatch = (dispatch: any) => (
     removeIdFromCart
   }, dispatch)
 )
+
+interface OwnProps {
+  toggleHidden: () => void
+}
 
 function Cart(props: Props): JSX.Element {
   let productsInCart
@@ -42,11 +48,21 @@ function Cart(props: Props): JSX.Element {
   }
 
   return (
-    <div>
-      <p>Your Cart</p>
-      {productsInCart}
-      <p>Total:</p>
-      <button>Checkout</button>
+    <div className="modal-wrapper">
+      <div 
+        className="modal-background"
+        onClick={props.toggleHidden}
+      >
+      </div>
+      <div className="cart-modal">
+        <div className="cart-items">
+          <p>Your Cart</p>
+          <a onClick={props.toggleHidden}>X</a>
+          {productsInCart}
+          <p>Total:</p>
+          <button>Checkout</button>
+        </div>
+      </div>
     </div>
   )
 }
