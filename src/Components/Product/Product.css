@@ -15,7 +15,18 @@
 }
 
 .product-name {
-  align-self: center;
+  border-bottom: #969696 1px solid;
+  border-top: #969696 1px solid;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  width: 100%;
+}
+
+.stars-and-button {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .star-container {
