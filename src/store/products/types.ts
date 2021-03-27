@@ -4,7 +4,9 @@ export type ProductsLibraryType = {
 
 export type ProductItemType = {
   id: string,
-  name: string
+  name: string,
+  rating: number,
+  numberOfReviews: number
 }
 
 export const SET_PRODUCTS_DATA = 'SET_PRODUCTS_DATA'
