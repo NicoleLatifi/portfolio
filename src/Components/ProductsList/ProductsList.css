@@ -12,6 +12,6 @@
 
 .products-container {
   display: grid;
-  grid-template-columns: repeat(3, 25%);
+  grid-template-columns: repeat(3, 20%);
   justify-content: center;
 }
