@@ -32,6 +32,7 @@ const mapDispatch = (dispatch: any) => (
 
 interface OwnProps {
   toggleHidden: () => void
+  cartAnimation: string
 }
 
 function Cart(props: Props): JSX.Element {
@@ -47,6 +48,8 @@ function Cart(props: Props): JSX.Element {
     })
   }
 
+  let modalClassList = `cart-modal ${props.cartAnimation}`
+
   return (
     <div className="modal-wrapper">
       <div 
@@ -54,7 +57,7 @@ function Cart(props: Props): JSX.Element {
         onClick={props.toggleHidden}
       >
       </div>
-      <div className="cart-modal modal-slide-animation">
+      <div className={modalClassList}>
         <div className="cart-items">
           <p>Your Cart</p>
           <a onClick={props.toggleHidden}>X</a>
