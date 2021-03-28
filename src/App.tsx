@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 
 import TopBar from './components/TopBar/TopBar'
 import Nav from './components/Nav/Nav'
-import Cart from './components/Cart/Cart'
 import ProductsList from './components/ProductsList/ProductsList'
 
 interface DispatchProps {
@@ -38,7 +37,6 @@ function App(props: DispatchProps): JSX.Element {
       <TopBar />
       <Nav />
       <ProductsList />
-      <Cart />
     </div>
   )
 }

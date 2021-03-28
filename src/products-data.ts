@@ -20,13 +20,13 @@ export const products: ProductsLibrary = {
     id: "2",
     name: "Placeholder One",
     rating: 3,
-    numberOfReviews: 0
+    numberOfReviews: 1
   },
   "3": {
     id: "3",
     name: "Placeholder Two",
     rating: 4,
-    numberOfReviews: 0
+    numberOfReviews: 1
   },
   "4": {
     id: "4",

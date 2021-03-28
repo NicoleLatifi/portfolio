@@ -80,11 +80,14 @@ function Product(props: Props): JSX.Element {
         />
       </div>
       <p className="product-name">{props.productData.name}</p>
-      <div className="stars-and-button">
-        <div className="star-container">
-          {filledStars}
-          {unfilledStars}
-          <p className="number-of-reviews">({props.productData.numberOfReviews})</p>
+      <div className="product-details">
+        <div>
+          <p className="price">Free!</p>
+          <div className="star-container">
+            {filledStars}
+            {unfilledStars}
+            <p className="number-of-reviews">({props.productData.numberOfReviews})</p>
+          </div>
         </div>
         {!isAddedToCart &&
           <Button 

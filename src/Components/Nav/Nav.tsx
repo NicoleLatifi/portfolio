@@ -1,7 +1,16 @@
 import './Nav.css'
 import ShoppingBag from '../../assets/shopping-basket.svg'
+import { useState } from 'react'
+
+import Cart from '../Cart/Cart'
 
 function Nav(): JSX.Element {
+  const [ isCartHidden, setIsCartHidden ] = useState<boolean>(true)
+  
+  const toggleHidden = (): void => {
+    setIsCartHidden(!isCartHidden)
+  }
+
   return (
     <div className="nav">
       <div>
@@ -16,8 +25,14 @@ function Nav(): JSX.Element {
           className="shopping-bag"
           src={ShoppingBag}
           alt="Shopping bag"
+          onClick={toggleHidden}
         />
       </ul>
+      {isCartHidden ? null : 
+        <Cart 
+          toggleHidden={toggleHidden}
+        />
+      }
     </div>
   )
 }
