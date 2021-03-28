@@ -6,9 +6,18 @@ import Cart from '../Cart/Cart'
 
 function Nav(): JSX.Element {
   const [ isCartHidden, setIsCartHidden ] = useState<boolean>(true)
+  const [ cartAnimation, setCartAnimation ] = useState<string>("open-animation")
   
   const toggleHidden = (): void => {
-    setIsCartHidden(!isCartHidden)
+    if(isCartHidden) {
+      setCartAnimation("open-animation")
+      setIsCartHidden(!isCartHidden)
+    } else {
+      setCartAnimation("close-animation")
+      setTimeout(function(){
+        setIsCartHidden(!isCartHidden)
+      }, 1000)
+    }
   }
 
   return (
@@ -31,6 +40,7 @@ function Nav(): JSX.Element {
       {isCartHidden ? null : 
         <Cart 
           toggleHidden={toggleHidden}
+          cartAnimation={cartAnimation}
         />
       }
     </div>
