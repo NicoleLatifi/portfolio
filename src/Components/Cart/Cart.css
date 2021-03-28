@@ -37,7 +37,7 @@
 }
 
 /* Animations */
-@keyframes modal-slide {
+@keyframes modal-slide-open {
   /* 0% {
     transform: translate(110%, 0);
   }
@@ -48,7 +48,16 @@
   to {right: 0;}
 }
 
-.modal-slide-animation {
-  animation: modal-slide 1s;
+.open-animation {
+  animation: modal-slide-open 1s;
   /* animation: modal-slide 1s ease forwards; */
+}
+
+@keyframes modal-slide-close {
+  from {right: 0;}
+  to {right: -400px;}
+}
+
+.close-animation {
+  animation: modal-slide-close 1s;
 }
