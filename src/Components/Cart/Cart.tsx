@@ -54,7 +54,7 @@ function Cart(props: Props): JSX.Element {
         onClick={props.toggleHidden}
       >
       </div>
-      <div className="cart-modal">
+      <div className="cart-modal modal-slide-animation">
         <div className="cart-items">
           <p>Your Cart</p>
           <a onClick={props.toggleHidden}>X</a>
