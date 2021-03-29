@@ -59,7 +59,7 @@ function Cart(props: Props): JSX.Element {
       </div>
       <div className={modalClassList}>
         <div className="cart-items">
-          <p>Your Cart</p>
+          <p>Cart ({Object.keys(props.cart).length})</p>
           <a onClick={props.toggleHidden}>X</a>
           {productsInCart}
           <p>Total:</p>
