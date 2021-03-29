@@ -10,8 +10,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Button from '../Button/Button'
-import { products } from '../../products-data'
-import { setProductsData } from '../../store/products/actions'
 
 interface StateProps {
   products: ProductsLibraryType
@@ -98,7 +96,7 @@ function Product(props: Props): JSX.Element {
           />
         }
         {isAddedToCart &&
-          <p>Added!</p>
+          <p className="added">Added!</p>
         }
       </div>
 
