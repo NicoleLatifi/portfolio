@@ -42,9 +42,9 @@
 }
 
 .star {
-  height: 20px;
+  height: 16px;
   margin: 1px;
-  width: 20px;
+  width: 16px;
 }
 
 .unfilled {
@@ -53,4 +53,10 @@
 
 .number-of-reviews {
   font-size: 18px;
+}
+
+.added {
+  color: #1F7A8C;
+  font-weight: bold;
+  margin: 0;
 }
