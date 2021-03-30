@@ -8,3 +8,9 @@
   padding: 5px 0 5px 0;
   width: 95px;
 }
+
+.adjust-quantity {
+  border: none;
+  height: 30px;
+  width: 30px;
+}
