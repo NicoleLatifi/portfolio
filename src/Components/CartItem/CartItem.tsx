@@ -1,3 +1,5 @@
+import './CartItem.css'
+import TrashCan from '../../assets/delete.svg'
 import { CartType } from '../../store/cart/types'
 import { ProductsLibraryType } from '../../store/products/types'
 import { removeIdFromCart, decreaseQuantity, increaseQuantity } from '../../store/cart/actions'
@@ -39,27 +41,34 @@ interface OwnProps {
 
 function Product(props: Props): JSX.Element {
   return (
-    <div style={{border: "2px solid purple", margin: "5px"}}>
-      <p>{props.products[props.id].name}</p>
-      <p>quantity: {props.cart[props.id].quantity}</p>
-      <Button
-        id={props.id}
-        variant="remove"
-        name="Remove"
-        onClick={() => props.removeIdFromCart(props.id)}
-      />
-      <Button 
-      id={props.id}
-      variant="decrease-quantity" 
-      name="-" 
-      onClick={() => props.decreaseQuantity(props.id)}
-      />
-      <Button 
-      id={props.id}
-      variant="increase-quantity" 
-      name="+" 
-      onClick={() => props.increaseQuantity(props.id)}
-      />
+    <div className="cart-item">
+      <div>
+        <p>{props.products[props.id].name}</p>
+        <p>${props.products[props.id].price.toFixed(2)}</p>
+      </div>
+      <div className="quantity-and-remove-buttons">
+        <div className="quantity-container">
+          <Button 
+          id={props.id}
+          variant="adjust-quantity" 
+          name="-" 
+          onClick={() => props.decreaseQuantity(props.id)}
+          />
+          <p className="quantity">{props.cart[props.id].quantity}</p>
+          <Button 
+          id={props.id}
+          variant="adjust-quantity" 
+          name="+"
+          onClick={() => props.increaseQuantity(props.id)}
+          />
+        </div>
+        <img
+          className="trash-can"
+          src={TrashCan}
+          alt="trash-can"
+          onClick={() => props.removeIdFromCart(props.id)}
+        />
+      </div>
     </div>
   )
 }
