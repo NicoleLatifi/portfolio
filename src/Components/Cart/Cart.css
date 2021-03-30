@@ -30,10 +30,19 @@
 }
 
 .cart-items {
-  height: 240px;
   display: flex;
   flex-direction: column;
   overflow: scroll;
+}
+
+.cart-header {
+  border-bottom: #969696 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.x {
+  cursor: default;
 }
 
 /* Animations */
