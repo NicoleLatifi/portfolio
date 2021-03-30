@@ -49,6 +49,7 @@ function Cart(props: Props): JSX.Element {
   }
 
   let modalClassList = `cart-modal ${props.cartAnimation}`
+  let numberOfCartItems: number = Object.keys(props.cart).length
 
   return (
     <div className="modal-wrapper">
@@ -59,11 +60,24 @@ function Cart(props: Props): JSX.Element {
       </div>
       <div className={modalClassList}>
         <div className="cart-items">
-          <p>Cart ({Object.keys(props.cart).length})</p>
-          <a onClick={props.toggleHidden}>X</a>
-          {productsInCart}
-          <p>Total:</p>
-          <button>Checkout</button>
+          <div className="cart-header">
+            <p>Cart ({numberOfCartItems})</p>
+            <p 
+              className="x" 
+              onClick={props.toggleHidden}
+            >
+              x
+            </p>
+          </div>
+          {(numberOfCartItems === 0) &&
+            <p>No items in cart</p>}
+          {(numberOfCartItems > 0) &&
+            <div>
+              {productsInCart}
+              <p>Total:</p>
+              <button>Checkout</button>
+            </div>
+          }
         </div>
       </div>
     </div>
