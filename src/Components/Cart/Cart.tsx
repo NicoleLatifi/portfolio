@@ -50,6 +50,9 @@ function Cart(props: Props): JSX.Element {
 
   let modalClassList = `cart-modal ${props.cartAnimation}`
   let numberOfCartItems: number = Object.keys(props.cart).length
+  let total: number = Object.keys(props.cart).reduce((sum, id) => {
+    return sum + (props.products[id].price * props.cart[id].quantity)
+  }, 0)
 
   return (
     <div className="modal-wrapper">
@@ -74,7 +77,7 @@ function Cart(props: Props): JSX.Element {
           {(numberOfCartItems > 0) &&
             <div>
               {productsInCart}
-              <p>Total:</p>
+              <p>Total: ${total.toFixed(2)}</p>
               <button>Checkout</button>
             </div>
           }
