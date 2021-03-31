@@ -16,7 +16,7 @@ function Nav(): JSX.Element {
       setCartAnimation("close-animation")
       setTimeout(function(){
         setIsCartHidden(!isCartHidden)
-      }, 1000)
+      }, 500)
     }
   }
 

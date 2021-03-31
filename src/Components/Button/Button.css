@@ -1,5 +1,16 @@
 .add-to-cart {
+  background-color: #1F7A8C;
+  border: none;
   border-radius: 20px;
+  color: #EFF2F1;
+  font-size: 14px;
+  height: 40px;
   padding: 5px 0 5px 0;
-  width: 100px;
+  width: 95px;
+}
+
+.adjust-quantity {
+  border: none;
+  height: 30px;
+  width: 30px;
 }

@@ -5,6 +5,7 @@ export type ProductsLibraryType = {
 export type ProductItemType = {
   id: string,
   name: string,
+  price: number,
   rating: number,
   numberOfReviews: number
 }

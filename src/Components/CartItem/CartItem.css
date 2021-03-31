@@ -1,0 +1,32 @@
+.cart-item {
+  border-bottom: #969696 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.quantity-and-remove-buttons {
+  align-items: center;
+  display: flex;
+}
+
+.quantity-container {
+  align-items: center;
+  border: #969696 1px solid;
+  display: flex;
+  height: 30px;
+}
+
+.quantity {
+  align-items: center;
+  border-left: #969696 1px solid;
+  border-right: #969696 1px solid;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.trash-can {
+  margin-left: 10px;
+  width: 24px;
+}
