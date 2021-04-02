@@ -1,6 +1,7 @@
 import './Nav.css'
 import ShoppingBag from '../../assets/shopping-basket.svg'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import Cart from '../Cart/Cart'
 
@@ -27,7 +28,9 @@ function Nav(): JSX.Element {
         <h2>Software Engineer</h2>
       </div>
       <ul className="nav-list">
-        <li className="nav-item">SHOP</li>
+        <NavLink to="/" style={{ textDecoration: 'none' }}>
+          <li className="nav-item">SHOP</li>
+        </NavLink>
         <li className="nav-item">SIGN IN</li>
         <li className="nav-item">REGISTER</li>
         <img

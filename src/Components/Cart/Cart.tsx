@@ -5,6 +5,7 @@ import { ProductsLibraryType } from '../../store/products/types'
 import { removeIdFromCart } from '../../store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import CartItem from '../CartItem/CartItem'
 
@@ -78,7 +79,9 @@ function Cart(props: Props): JSX.Element {
             <div>
               {productsInCart}
               <p>Total: ${total.toFixed(2)}</p>
-              <button>Checkout</button>
+              <Link to="/checkout">
+                <button>Checkout</button>
+              </Link>
             </div>
           }
         </div>
