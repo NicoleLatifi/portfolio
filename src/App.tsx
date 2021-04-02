@@ -7,10 +7,12 @@ import { setProductsData } from './store/products/actions'
 import { setCart, addToCart } from './store/cart/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router-dom'
 
 import TopBar from './components/TopBar/TopBar'
 import Nav from './components/Nav/Nav'
 import ProductsList from './components/ProductsList/ProductsList'
+import Checkout from './components/Checkout/Checkout'
 
 interface DispatchProps {
   setProductsData: (products: ProductsLibraryType) => void,
@@ -36,7 +38,14 @@ function App(props: DispatchProps): JSX.Element {
     <div>
       <TopBar />
       <Nav />
-      <ProductsList />
+      <Switch>
+        <Route exact path='/'>
+          <ProductsList />
+        </Route>
+        <Route path='/checkout'>
+          <Checkout />
+        </Route>
+      </Switch>
     </div>
   )
 }
